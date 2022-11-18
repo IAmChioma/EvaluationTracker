@@ -37,9 +37,9 @@ Register
 
 
 ## Template 
-Create Template
-Edit Template
-Delete Template
+Create Template __
+Edit Template __
+Delete Template __
 Get Template List
 View Template 
 
