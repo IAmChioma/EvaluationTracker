@@ -1,0 +1,45 @@
+<div class="container" *ngIf="!isLoggedIn">
+    <p>Login to View</p>
+    </div>
+<div class="container" *ngIf="isLoggedIn">
+    <div class="mt-2">
+        <button class="btn btn-secondary" routerLink="/create-template">Create Template</button> 
+    </div>
+    <p *ngIf="hasSuccess" class="alert alert-success">{{successMessage}}</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+        <th scope="col">Creation Date</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let template of templates; let i =index">
+      <tr>
+        <!-- <th scope="row">{{ i+1 }}</th> -->
+        <td>{{ template.name}}</td>
+        <td> {{ template.status}}</td>
+        <td>{{ template.created_date | date:"MM-dd-yyyy"}}</td>
+        <td>
+            <button class="btn btn-sm btn-secondary" routerLink="/template/{{template._id}}">View</button> &nbsp;
+            <button *ngIf="template.status=='active'" class="btn btn-sm btn-danger" routerLink="/template/{{template._id}}/edit">Edit</button> &nbsp;
+            <button *ngIf="template.status=='active'" class="btn btn-sm btn-warning" (click)="deactivateTemplate(template._id)">Deactivate</button>
+        
+        </td>
+      </tr>
+      </tbody>
+      </table>
+
+      <div>
+        <button class="btn btn-secondary" [disabled]="offset<=0" (click)="getPrev()">Prev</button> &nbsp;
+        <button class="btn btn-secondary" [disabled]="count >=totalCount-offset" (click)="getNext()">Next</button> &nbsp;
+        <span>Total: {{ totalCount}}</span>
+    
+    </div>
+    
+    
+    </div>
+    

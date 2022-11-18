@@ -1,0 +1,41 @@
+<div class="toolbar">
+    <img
+      width="100"
+      alt="Logo"
+      src="https://mc-1b49d921-43a2-4264-88fd-647979-cdn-endpoint.azureedge.net/-/jssmedia/images/logo-background.svg?iar=0&rev=b968dab0e0ea49fc9b0aa0c58ff8b152&hash=628BA7D1E0FA4A1881740BDA2A4D9F98"
+    />
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+    
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/">Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" *ngIf="isLoggedIn" routerLink="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" *ngIf="isLoggedIn" routerLink="/templates">Templates</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  *ngIf="isLoggedIn"routerLink="/evaluations">Evaluations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/register">Register</a>
+              </li>
+           
+
+    
+            </ul>
+    
+          </div>
+        </div>
+      </nav>
+    <div class="spacer"></div>
+    <app-login></app-login>
+
+    </div>

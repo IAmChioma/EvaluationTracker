@@ -1,0 +1,28 @@
+<div class="container" *ngIf="!showCreateEvaluation">
+
+
+<p *ngIf="hasSuccess" class="alert alert-success">{{successMessage}}</p>
+<h5>Template Details</h5>
+<p>Name: {{template.name | uppercase}}</p>
+<p>Status : {{template.status}} &nbsp;<button *ngIf="template.status=='active'" class="btn btn-sm btn-warning" (click)="deactivateTemplate(template._id)">Deactivate</button>&nbsp;
+</p>
+
+<p>The questions in this template are:</p>
+<ul>
+    <li *ngFor="let question of template.questions">
+         {{question.question}} 
+    </li>
+</ul>
+<div class="row">
+    <div class="col-md-8">
+    <button class="btn btn-primary" (click)="goBack()" >Back</button> &nbsp;
+<button (click)="deleteATemplate(template._id)" class="btn btn-danger" >Delete</button> &nbsp;
+<button *ngIf="template.status=='active'" class="btn btn-secondary" (click)="createEvaluation($event)">Create Evaluation From Template</button>
+</div>
+</div>
+</div>
+<div class="container" *ngIf="showCreateEvaluation">
+<div>
+<app-add-evaluation [template]=template (addEventEmmiter)="hideEvaluationForm($event)"></app-add-evaluation>
+</div>
+</div>

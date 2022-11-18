@@ -1,0 +1,32 @@
+
+  /* .container-margin {
+    margin-top: 5em;
+   } 
+  */
+   .flex-container {
+
+   }
+
+   .my-card {
+     all: unset;
+     border-radius: 4px;
+     border: 1px solid #eee;
+     background-color: #fafafa;
+     width: 50%;
+     margin: 0 auto 5%;
+     padding: 2%;
+     display: flex;
+     transition: all 0.2s ease-in-out;
+   }
+ 
+ 
+   .flex-container .my-card:not(.highlight-card) {
+     cursor: pointer;
+   }
+ 
+   .flex-container .my-card:not(.highlight-card):hover {
+     transform: translateY(-3px);
+     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+   }
+ 
+  

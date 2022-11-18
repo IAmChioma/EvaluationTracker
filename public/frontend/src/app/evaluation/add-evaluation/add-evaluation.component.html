@@ -1,0 +1,73 @@
+<div class="container">
+    <form #evaluationForm="ngForm" (ngSubmit)="addEvaluation(evaluationForm)">
+    
+        <p *ngIf="hasError" class="alert alert-danger">{{errorMessage}}</p>
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <label for="name">Name</label>
+                    <input type="text" name="name" id="name" [(ngModel)]="evaluation.name" #name="ngModel" class="form-control">
+                
+            </div>
+            <div class="col-md-12 mb-2">
+                <label for="template">Template Name</label>
+                    <input type="text" name="template" id="template" [(ngModel)]="evaluation.template.name" #name="ngModel" readonly class="form-control">
+                
+            </div>
+       
+        <div class="col-md-12 mb-2">
+            <label for="evaluationType">EvaluationType</label>
+                <select type="text" name="evaluationType" id="evaluationType" [(ngModel)]="evaluation.evaluationType"  required class="form-control">
+                    <option value="">Select</option>
+                    <!-- <option *ngFor="let role of roleType" [value]=role.key>{{roleType[role]}}</option> -->
+                    <option value="USER">User</option>
+                    <option value="STAFF">Staff</option>
+                    </select>
+       
+        </div>
+       
+        <div class="col-md-12 mb-2">
+            <label for="user">User</label>
+                <select type="text" name="user" id="user" [(ngModel)]="evaluation.user_id"  required class="form-control">
+                    <option value="">Select</option>
+                    <option *ngFor="let user of users" [value]=user._id>{{user.name}}</option>
+       
+</select>
+</div>
+       
+        <div class="col-md-12">
+            <label for="questions">Questions</label> 
+        
+            <div class="row">
+                <div class="col-md-12 mb-2" >
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Question</th>
+                          
+                    
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let question of template.questions;let ind=index">
+                          <tr>
+                            <th scope="row">{{ ind+1 }}</th>
+                            <td>{{ question.question}}</td>
+                      
+                          </tr>
+                          </tbody>
+                          </table>
+                          </div>
+                          </div>
+      
+           </div>
+        
+
+       
+        <div class="col-md-4 mt-2">
+            <button class="btn btn-primary" (click)="cancel()">Cancel</button>
+       &nbsp;
+            <button type="submit" class="btn btn-secondary">Create evaluation</button>
+        </div>
+        </div>
+    </form> 
+    </div>

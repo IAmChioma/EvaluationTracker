@@ -1,0 +1,31 @@
+<div *ngIf="isLoggedIn" class="d-flex">
+    <div class="my-mr2">
+        Welcome,{{name}}
+    </div>
+    <div class="my-ml2">
+        <button class="btn btn-sm btn-secondary" (click)="logout()">Logout</button>
+    </div>
+      
+ 
+   
+</div>
+<div *ngIf="!isLoggedIn" >
+<form #loginForm="ngForm" (ngSubmit)="onLogin()">
+    <div class="row d-flex">
+
+    
+    <div class="col-md-5">
+        <input type="text"  ngModel name="username" id="username" placeholder="Enter Username" #username="ngModel" required class="form-control">
+        <div *ngIf="username.touched && !username.valid">{{username_required}}</div>
+        </div>
+    <div class="col-md-5">
+        <input type="password" ngModel name="password" id="password" #password="ngModel" required placeholder="Enter Password" class="form-control">
+        <div *ngIf="password.touched &&!password.valid">{{password_required}}</div>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-secondary mr-5" id="my-btn" type="submit" [disabled]="!loginForm.valid">Login</button>
+    </div>
+    </div>
+</form>
+</div>

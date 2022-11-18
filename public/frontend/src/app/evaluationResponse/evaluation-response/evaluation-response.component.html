@@ -1,0 +1,28 @@
+<div class="container">
+    <h5> Evaluation Response Details</h5>
+    <p *ngIf="hasSuccess" class="alert alert-success mt-2">{{successMessage}}</p>
+    <div class="row mb-2">
+    <div class="col-md-12">
+        <p>Evaluator email : {{evaluationResponse.current_evaluator_email}} </p>
+    
+        <p>StartDate : {{evaluationResponse.created_date | date}} </p>
+        <ul>
+            <li *ngFor="let question of evaluationResponse.questions">
+               <p> {{question.question}}  </p>
+               <p>Response:  {{question.answer}}  </p>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <button (click)="goBack()" class="btn btn-secondary">Go Back</button>&nbsp;
+        <button routerLink="/evaluation/{{id}}/evaluationResponse/{{evaluationResponseId}}/edit" class="btn btn-warning">Edit</button> &nbsp;
+        <button (click)="deleteEvaluationResponse()" class="btn btn-danger" id="delete-btn">Delete</button> &nbsp;
+       
+        </div>
+    </div>
+    <!-- <div *ngIf="edit">
+    <app-edit-evaluation-response  [evaluationResponse]="evaluationResponse" (editEvaluationResponseEventEmmiter)="reloadEvaluationResponseAndHideForm($event)"></app-edit-evaluation-response>
+    </div> -->
+    </div>

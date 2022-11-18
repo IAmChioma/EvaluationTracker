@@ -1,0 +1,41 @@
+<div class="container mt-4">
+   
+ 
+<table class="table table-striped">
+    <thead>
+      <tr>
+        
+        <th scope="col">Email</th>
+        <!-- <th scope="col">IsLocked?</th> -->
+        <th scope="col">Creation Date</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <span *ngIf="evaluationResponses?.length == 0" class="container">No data</span>
+    <tbody *ngFor="let evaluationResponse of evaluationResponses; let i =index">
+       
+      <tr>
+
+        <td>{{ evaluationResponse.current_evaluator_email}}</td>
+        <!-- <td> {{ evaluationResponse.locked}}</td> -->
+        <td>{{ evaluationResponse.created_date | date:"MM-dd-yyyy"}}</td>
+        <td>
+            <button class="btn btn-sm btn-secondary" routerLink="/evaluation/{{id}}/evaluationResponse/{{evaluationResponse._id}}">View</button> &nbsp;
+            <button class="btn btn-sm btn-danger" routerLink="/evaluation/{{id}}//evaluationResponse/{{evaluationResponse._id}}/edit">Edit</button>
+        
+        </td>
+      </tr>
+      </tbody>
+      </table>
+
+      <div>
+        <button class="btn btn-secondary" [disabled]="offset<=0" (click)="getPrev()">Prev</button> &nbsp;
+        <button class="btn btn-secondary" [disabled]="count >=totalCount-offset" (click)="getNext()">Next</button> &nbsp;
+        <span>Total: {{ totalCount}}</span>
+    
+    </div>
+    
+    
+    </div>
+    

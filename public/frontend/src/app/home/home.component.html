@@ -1,0 +1,23 @@
+<div class="container">
+<div class="flex-container">
+    
+  <h4 class="my-card" >
+   
+    <span>Welcome to Evaluation Tracking System</span>
+  
+</h4>
+<div class="row">
+    
+    <div class="col-md-12" *ngIf="isLoggedIn">
+        <button class="btn btn-secondary mr-5" (click)="mode()" >Switch mode</button>
+    </div>
+    <div class="col-md-12" *ngIf="!isLoggedIn">
+        <p> Kindly Login to continue</p>
+    </div>
+</div>
+
+
+</div>
+
+
+</div>

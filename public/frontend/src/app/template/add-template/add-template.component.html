@@ -1,0 +1,62 @@
+<div class="container">
+    <form #templateForm="ngForm" (ngSubmit)="addTemplate(templateForm)">
+    
+        <p *ngIf="hasError" class="alert alert-danger">{{errorMessage}}</p>
+        <div class="row">
+    
+       
+        <div class="col-md-12 mb-2">
+            <label for="name">Name</label>
+                <input type="text" name="name" id="name" [(ngModel)]="template.name" #name="ngModel" required class="form-control">
+            <div *ngIf="!name.valid && name.touched">
+               {{name_required}}
+            </div>
+        </div>
+       
+        <div class="col-md-12">
+            <label for="questions">Questions</label> 
+             <div class="row mt-2">
+                
+                <div class="col-md-11"><input type="text" name="question" id="question" [(ngModel)]="question"  required class="form-control"></div>
+                <div class="col-md-1"> 
+                  <button class="btn btn-sm btn-warning" (click)="addQuestion($event)">Add</button>
+                 </div>
+                 </div>
+            <div class="row">
+                <div class="col-md-12 mb-2" >
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Question</th>
+                            <th scope="col">Actions</th>
+                    
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let question of questions;let ind=index">
+                          <tr>
+                            <th scope="row">{{ ind+1 }}</th>
+                            <td>{{ question.question}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-secondary" (click)="editQuestion($event,ind)">Edit</button> &nbsp;
+                                <button class="btn btn-sm btn-danger" (click)="removeQuestion(ind)">Delete</button>
+                            
+                            </td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          </div>
+                          </div>
+      
+           </div>
+        
+
+       
+        <div class="col-md-4 mt-2">
+            <button class="btn btn-primary" (click)="goBack()" >Back</button>
+       &nbsp;
+            <button type="submit" class="btn btn-secondary">Create Template</button>
+        </div>
+        </div>
+    </form> 
+    </div>

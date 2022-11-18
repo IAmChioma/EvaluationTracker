@@ -1,0 +1,30 @@
+export const environment = {
+  application_title : "Evaluation System",
+  start_message: "Welcome to Evaluation tracking System",
+  ip_title : "http://localhost:4200",
+  db_title : "MongoDB",
+  success_message: " added successfully",
+  success_message_update: " updated successfully",
+  template_success_message: "Template added successfully",
+  template_success_message_update: "template updated successfully",
+  registration_success_message: "Registration successful",
+  username_required: "Username is required",
+  password_required: "Password is required",
+
+  question_required:"Question cannot be empty",
+  template_name_required: "Name is required",
+  name_required: "Name is required",
+  email_required: "Email is required",
+  registration_failed_message: "Registration failed",
+  registration_info_message: "Please fill the following form to register a new user ",
+  initial_mesage:"",
+  enter_password: "Re-enter Password here",
+  password_does_not_match: "Password do not match",
+
+  registration_required_fields:"Username and password are required fields",
+  login_to_view: "Kindly login to view a team",
+  page_not_found: "404 error Page not found",
+  guest: "Guest",
+  response_received: "Response has been submitted",
+  production: false
+};

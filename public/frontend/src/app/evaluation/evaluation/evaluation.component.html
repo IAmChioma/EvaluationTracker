@@ -1,0 +1,71 @@
+<div class="container">
+
+
+    <p *ngIf="hasSuccess" class="alert alert-success">{{successMessage}}</p>
+    <h5>Evaluation Details</h5>
+    <p>Name: {{evaluation.name | uppercase}}</p>
+    <p>Locked : {{evaluation.locked}} &nbsp;     <button  class="btn btn-sm btn-warning" *ngIf="!evaluation.locked" (click)="lock(evaluation._id)">Lock</button></p>
+    <p>Type : {{evaluation.evaluationType}}</p>
+    <p>Creation Date: {{ evaluation.created_date | date:"MM-dd-yyyy"}}</p>
+    <p>The questions in this evaluation are:</p>
+    <ul>
+        <li *ngFor="let question of evaluation.questions">
+             {{question.question}} 
+        </li>
+    </ul>
+    <div class="row">
+        <div class="col-md-5">
+        <button class="btn btn-primary" (click)="goBack()" >Back</button> &nbsp;
+    <button (click)="deleteEvaluation(evaluation._id)" class="btn btn-danger" >Delete</button> &nbsp;
+
+        
+    <button *ngIf="!evaluation.locked" class="btn btn-secondary" routerLink="/evaluation/{{evaluation._id}}/evaluationResponses/create-response">Create Evaluation Response</button> &nbsp;
+   
+    </div>
+    <div class="col-md-7" *ngIf="!evaluation.locked"> 
+        <input type="text"  value="http://localhost:4200/evaluation/{{evaluation._id}}/evaluationResponses/create-response" readonly class="form-control">
+    </div>
+    </div>
+    </div>
+    <div class="container">
+        
+    <div class="mt-4">
+        <h5>Evaluation Responses</h5>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                
+                <th scope="col">Email</th>
+                <th scope="col">Evaluation Date</th>
+                <th scope="col">Actions</th>
+        
+              </tr>
+            </thead>
+            <span *ngIf="evaluationResponses?.length == 0" class="container">No data</span>
+            <tbody *ngFor="let evaluationResponse of evaluationResponses; let i =index">
+               
+              <tr>
+        
+                <td>{{ evaluationResponse.current_evaluator_email}}</td>
+                <td>{{ evaluationResponse.created_date | date:"MM-dd-yyyy"}}</td>
+                <td>
+                    <button class="btn btn-sm btn-secondary" routerLink="/evaluation/{{id}}/evaluationResponse/{{evaluationResponse._id}}">View</button> &nbsp;
+                    <button class="btn btn-sm btn-danger" routerLink="/evaluation/{{id}}//evaluationResponse/{{evaluationResponse._id}}/edit">Edit</button> &nbsp;
+                   
+                
+                </td>
+              </tr>
+              </tbody>
+              </table>
+        
+              <div>
+                <button class="btn btn-secondary" [disabled]="offset<=0" (click)="getPrev()">Prev</button> &nbsp;
+                <button class="btn btn-secondary" [disabled]="count >=totalCount-offset" (click)="getNext()">Next</button> &nbsp;
+                <span>Total: {{ totalCount}}</span>
+            
+            </div>
+            
+            
+            </div>
+            
+    </div>
