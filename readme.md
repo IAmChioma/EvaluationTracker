@@ -3,6 +3,10 @@ This is an Evaluation Tracking System
 
 ## Initial setup
 
+## Import Data into mongodb
+
+mongorestore --gzip dump\
+
 ## For backend 
 npm install  
 
