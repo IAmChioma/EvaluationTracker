@@ -12,8 +12,9 @@ mongorestore --gzip dump\
 npm install  
 
 ## For frontend 
-cd ./public/volleyball 
-run npm install  
+ cd ./public/volleyball,
+
+ npm install  
 
 
 ## Running project
