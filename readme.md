@@ -37,30 +37,31 @@ Register
 
 
 ## Template 
-Create Template __
-Edit Template __
-Delete Template __
-Get Template List
-View Template 
+Create Template,
+Edit Template,
 
-Deactivate template
+Delete Template,
+Get Template List,
+View Template, 
+
+Deactivate template,
 Create Evaluation from Template
 
 ## Evaluation 
-Create Evaluation
-Edit Evaluation
-Delete Evaluation
-Get Evaluation List
-View Evaluation 
+Create Evaluation,
+Edit Evaluation,
+Delete Evaluation,
+Get Evaluation List,
+View Evaluation, 
 
-Lock Evaluation
+Lock Evaluation,
 Provide Response  to Evaluation
 
 ## Evaluation Response 
-Create Evaluation Response
-Edit Evaluation Response
-Delete Evaluation Response
-Get  All Evaluation Response List in an evaluation
+Create Evaluation Response,
+Edit Evaluation Response,
+Delete Evaluation Response,
+Get  All Evaluation Response List in an evaluation,
 View Evaluation Response
 
 ## Yet To Complete
