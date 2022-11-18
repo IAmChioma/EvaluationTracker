@@ -2,6 +2,7 @@ This is an Evaluation Tracking System achieved using MEAN Stack
 
 
 ## Initial setup
+Clone repository
 
 ## Import Data into mongodb
 
