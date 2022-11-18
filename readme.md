@@ -1,4 +1,4 @@
-This is an Evaluation Tracking System
+This is an Evaluation Tracking System achieved using MEAN Stack
 
 
 ## Initial setup
